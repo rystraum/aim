@@ -1,6 +1,5 @@
-<h1>Editing thesis</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @thesis %> |
-<%= link_to 'Back', theses_path %>
+<%- model_class = Thesis -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Thesis %></h1>
+</div>
+<%= render :partial => 'form' %>

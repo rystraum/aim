@@ -1,34 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Thesis -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Thesis %></h1>
+</div>
 
-<p>
-  <strong>Call number:</strong>
-  <%= @thesis.call_number %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:call_number) %></dt>
+      <dd><pre class="prettyprint"><%= @thesis.call_number %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:course) %></dt>
+      <dd><pre class="prettyprint"><%= @thesis.course %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:year) %></dt>
+      <dd><pre class="prettyprint"><%= @thesis.year %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:last_name) %></dt>
+      <dd><pre class="prettyprint"><%= @thesis.last_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:given_name) %></dt>
+      <dd><pre class="prettyprint"><%= @thesis.given_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:pages) %></dt>
+      <dd><pre class="prettyprint"><%= @thesis.pages %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Course:</strong>
-  <%= @thesis.course %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              theses_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_thesis_path(@thesis), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              thesis_path(@thesis),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Year:</strong>
-  <%= @thesis.year %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @thesis.last_name %>
-</p>
-
-<p>
-  <strong>Given name:</strong>
-  <%= @thesis.given_name %>
-</p>
-
-<p>
-  <strong>Pages:</strong>
-  <%= @thesis.pages %>
-</p>
-
-<%= link_to 'Edit', edit_thesis_path(@thesis) %> |
-<%= link_to 'Back', theses_path %>

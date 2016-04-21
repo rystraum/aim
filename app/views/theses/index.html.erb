@@ -1,35 +1,46 @@
-<h1>Listing theses</h1>
-
-<table>
+<%- model_class = Thesis -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Thesis %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Call number</th>
-      <th>Course</th>
-      <th>Year</th>
-      <th>Last name</th>
-      <th>Given name</th>
-      <th>Pages</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:call_number) %></th>
+      <th><%= model_class.human_attribute_name(:course) %></th>
+      <th><%= model_class.human_attribute_name(:year) %></th>
+      <th><%= model_class.human_attribute_name(:last_name) %></th>
+      <th><%= model_class.human_attribute_name(:given_name) %></th>
+      <th><%= model_class.human_attribute_name(:pages) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @theses.each do |thesis| %>
       <tr>
+        <td><%= thesis.id %></td>
         <td><%= thesis.call_number %></td>
         <td><%= thesis.course %></td>
         <td><%= thesis.year %></td>
         <td><%= thesis.last_name %></td>
         <td><%= thesis.given_name %></td>
         <td><%= thesis.pages %></td>
-        <td><%= link_to 'Show', thesis %></td>
-        <td><%= link_to 'Edit', edit_thesis_path(thesis) %></td>
-        <td><%= link_to 'Destroy', thesis, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l thesis.created_at, format: :long %></td>
+        <td>
+          <%= link_to thesis_path(thesis), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to thesis_path(thesis), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Thesis', new_thesis_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_thesis_path,
+            :class => 'btn btn-primary' %>
