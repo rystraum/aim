@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Call number:</strong>
+  <%= @thesis.call_number %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @thesis.course %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @thesis.year %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @thesis.last_name %>
+</p>
+
+<p>
+  <strong>Given name:</strong>
+  <%= @thesis.given_name %>
+</p>
+
+<p>
+  <strong>Pages:</strong>
+  <%= @thesis.pages %>
+</p>
+
+<%= link_to 'Edit', edit_thesis_path(@thesis) %> |
+<%= link_to 'Back', theses_path %>
