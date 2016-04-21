@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  call_number: MyString
+  course: MyString
+  year: 1
+  last_name: MyString
+  given_name: MyString
+  pages: 1
+
+two:
+  call_number: MyString
+  course: MyString
+  year: 1
+  last_name: MyString
+  given_name: MyString
+  pages: 1
